@@ -1,6 +1,6 @@
 name: flutter_gamepad
 description: A gamepad library for Flutter.
-version: 0.3.2
+version: 0.3.3
 homepage: https://github.com/MarsBoundMarty/flutter_gamepad
 
 environment:
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  plugin_platform_interface:
 
 dev_dependencies:
   flutter_test:
