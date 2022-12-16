@@ -42,9 +42,9 @@ export 'src/gamepad_info.dart';
 /// }
 /// ```
 class FlutterGamepad {
-  static const MethodChannel _methodChannel = const MethodChannel('com.rainway.flutter_gamepad/methods');
+  static const MethodChannel _methodChannel = const MethodChannel('com.example.flutter_gamepad/methods');
 
-  static const EventChannel _eventChannel = const EventChannel('com.rainway.flutter_gamepad/events');
+  static const EventChannel _eventChannel = const EventChannel('com.example.flutter_gamepad/events');
 
   static Stream<GamepadEvent>? _eventStream;
 
