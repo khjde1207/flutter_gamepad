@@ -53,9 +53,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   String _eventLogBin(GamepadEvent e) {
-    return e.runtimeType.toString() +
-        (e is GamepadButtonEvent ? e.button.toString() : '') +
-        (e is GamepadThumbstickEvent ? e.thumbstick.toString() : '');
+    return e.runtimeType.toString() + (e is GamepadButtonEvent ? e.button.toString() : '') + (e is GamepadThumbstickEvent ? e.thumbstick.toString() : '');
   }
 
   void onGamepadEvent(GamepadEvent e) {
@@ -98,19 +96,19 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Running on: ${Theme.of(context).platform}\n' +
-                    _eventLog.map(_describeEvent).toList().join('\n'),
+                Text(
+                  'Running on: ${Theme.of(context).platform}\n' + _eventLog.map(_describeEvent).toList().join('\n'),
                   style: TextStyle(
                     fontSize: 9.0,
                   ),
                 ),
-                Text('Ignored: ' +
-                    _debugEventLog.map(_describeEvent).toList().join('\n'),
+                Text(
+                  'Ignored: ' + _debugEventLog.map(_describeEvent).toList().join('\n'),
                   style: TextStyle(
                     fontSize: 9.0,
                   ),
                 ),
-                RaisedButton(onPressed: _fetchGamepads, child: Text('Call gamepads()')),
+                ElevatedButton(onPressed: _fetchGamepads, child: Text('Call gamepads()')),
                 Text('gamepads = ${_gamepads?.map((pad) => pad.vendorName)}'),
               ],
             ),

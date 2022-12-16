@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 /// Info about a gamepad that was connected or disconnected to the app.
 class GamepadInfo {
   /// A vendor supplied name. May be nil, and is not guaranteed to be unique. This should not be used as a key in a dictionary,
@@ -24,10 +22,10 @@ class GamepadInfo {
   final int id;
 
   const GamepadInfo({
-    @required this.vendorName,
-    @required this.productCategory,
-    @required this.isAttachedToDevice,
-    @required this.id,
+    required this.vendorName,
+    required this.productCategory,
+    required this.isAttachedToDevice,
+    required this.id,
   });
 
   /// Decode a GamepadInfo object from a platform channel message.

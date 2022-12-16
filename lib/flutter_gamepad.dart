@@ -42,24 +42,22 @@ export 'src/gamepad_info.dart';
 /// }
 /// ```
 class FlutterGamepad {
-  static const MethodChannel _methodChannel =
-      const MethodChannel('com.rainway.flutter_gamepad/methods');
+  static const MethodChannel _methodChannel = const MethodChannel('com.rainway.flutter_gamepad/methods');
 
-  static const EventChannel _eventChannel =
-      const EventChannel('com.rainway.flutter_gamepad/events');
+  static const EventChannel _eventChannel = const EventChannel('com.rainway.flutter_gamepad/events');
 
-  static Stream<GamepadEvent> _eventStream;
+  static Stream<GamepadEvent>? _eventStream;
 
   /// A stream of [GamepadEvent]s.
   static Stream<GamepadEvent> get eventStream {
     _eventStream ??= _eventChannel.receiveBroadcastStream().map((x) => GamepadEvent.decode(x));
-    return _eventStream;
+    return _eventStream!;
   }
 
   /// Return info about all currently connected controllers.
   static Future<List<GamepadInfo>> gamepads() async {
     final result = await _methodChannel.invokeListMethod<dynamic>('gamepads');
-    return result.map((x) => GamepadInfo.decode(x)).toList();
+    return result!.map((x) => GamepadInfo.decode(x)).toList();
   }
 
   static void enableDebugMode() {

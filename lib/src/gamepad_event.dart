@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import 'gamepad_info.dart';
 
 /// A button on a gamepad.
@@ -103,8 +101,7 @@ class GamepadConnectedEvent implements GamepadEvent {
   /// A record containing further information about this gamepad.
   final GamepadInfo gamepadInfo;
 
-  const GamepadConnectedEvent(
-      {@required this.gamepadId, @required this.gamepadInfo});
+  const GamepadConnectedEvent({required this.gamepadId, required this.gamepadInfo});
 }
 
 /// A gamepad event that fires when a controller is disconnected.
@@ -118,8 +115,7 @@ class GamepadDisconnectedEvent implements GamepadEvent {
   /// A record containing further information about this gamepad.
   final GamepadInfo gamepadInfo;
 
-  const GamepadDisconnectedEvent(
-      {@required this.gamepadId, @required this.gamepadInfo});
+  const GamepadDisconnectedEvent({required this.gamepadId, required this.gamepadInfo});
 }
 
 /// A gamepad event describing a button state change.
@@ -138,10 +134,10 @@ class GamepadButtonEvent implements GamepadEvent {
   final bool pressed;
 
   const GamepadButtonEvent({
-    @required this.gamepadId,
-    @required this.button,
-    @required this.value,
-    @required this.pressed,
+    required this.gamepadId,
+    required this.button,
+    required this.value,
+    required this.pressed,
   });
 }
 
@@ -162,10 +158,10 @@ class GamepadThumbstickEvent implements GamepadEvent {
   final double y;
 
   const GamepadThumbstickEvent({
-    @required this.gamepadId,
-    @required this.thumbstick,
-    @required this.x,
-    @required this.y,
+    required this.gamepadId,
+    required this.thumbstick,
+    required this.x,
+    required this.y,
   });
 }
 
@@ -177,7 +173,7 @@ class GamepadButtonDebugEvent implements GamepadEvent {
   final String info;
 
   const GamepadButtonDebugEvent({
-    @required this.gamepadId,
-    @required this.info,
+    required this.gamepadId,
+    required this.info,
   });
 }
