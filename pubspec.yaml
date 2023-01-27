@@ -29,7 +29,8 @@ flutter:
       android:
         package: com.example.flutter_gamepad
         pluginClass: FlutterGamepadPlugin
-
+      ios:
+        pluginClass: FlutterGamepadPlugin
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
