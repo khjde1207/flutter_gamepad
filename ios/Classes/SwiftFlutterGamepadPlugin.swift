@@ -153,11 +153,11 @@ public class SwiftFlutterGamepadPlugin: NSObject, FlutterPlugin {
   var gamepadStreamHandler: GamepadStreamHandler = GamepadStreamHandler()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "com.rainway.flutter_gamepad/methods", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "com.example.flutter_gamepad/methods", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterGamepadPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
 
-    let eventChannel = FlutterEventChannel(name: "com.rainway.flutter_gamepad/events", binaryMessenger: registrar.messenger())
+    let eventChannel = FlutterEventChannel(name: "com.example.flutter_gamepad/events", binaryMessenger: registrar.messenger())
     eventChannel.setStreamHandler(instance.gamepadStreamHandler)
   }
 
