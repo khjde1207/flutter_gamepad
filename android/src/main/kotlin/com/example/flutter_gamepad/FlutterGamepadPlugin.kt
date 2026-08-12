@@ -61,13 +61,14 @@ class FlutterGamepadPlugin :
 
   private fun emitConnection(deviceId: Int, event: String) {
     val device = InputDevice.getDevice(deviceId) ?: return
-    if (!device.isGamepad) return
+    if (!isGamepad(device)) return
     events?.success(mapOf("event" to event, "gamepadId" to deviceId, "gamepadInfo" to gamepadInfo(device)))
   }
 
   private fun gamepads(): List<Map<String, Any>> = InputDevice.getDeviceIds()
-    .mapNotNull(InputDevice::getDevice)
-    .filter(InputDevice::isGamepad)
+    .map { InputDevice.getDevice(it) }
+    .filterNotNull()
+    .filter(::isGamepad)
     .map(::gamepadInfo)
 
   private fun gamepadInfo(device: InputDevice): Map<String, Any> = mapOf(
@@ -77,6 +78,6 @@ class FlutterGamepadPlugin :
     "id" to device.id,
   )
 
-  private val InputDevice.isGamepad: Boolean
-    get() = sources and (InputDevice.SOURCE_GAMEPAD or InputDevice.SOURCE_JOYSTICK) != 0
+  private fun isGamepad(device: InputDevice): Boolean =
+    device.sources and (InputDevice.SOURCE_GAMEPAD or InputDevice.SOURCE_JOYSTICK) != 0
 }
